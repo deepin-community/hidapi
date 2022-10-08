@@ -1,0 +1,4 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libhidapi*.la
+usr/share/doc/hidapi/AUTHORS.txt
+usr/share/doc/hidapi/LICENSE*.txt
+usr/share/doc/hidapi/README.md

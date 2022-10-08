@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- --disable-silent-rules
+
+override_dh_strip:
+	dh_strip -plibhidapi-dev
+ifeq ($(DEB_HOST_ARCH_OS), linux)
+	dh_strip -plibhidapi-libusb0
+	dh_strip -plibhidapi-hidraw0
+endif
+ifeq ($(DEB_HOST_ARCH_OS), kfreebsd)
+	dh_strip -plibhidapi0
+endif
